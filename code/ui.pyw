@@ -64,6 +64,12 @@ class MainForm(QMainWindow):
         self.label_min_matches = QLabel('Numero minimo de letras a encontrar en una palabra')
 
         self.check_respect_word_order = QCheckBox('Modo combinacion', toggled=self.combination_checked)
+        self.check_respect_word_order.setToolTip('Cuando quieres buscar una cadena determinada, ya sea \n'
+                                                 'una terminación ( ej. -cion buscara todas las palabras\n'
+                                                 'que terminen en "cion" ), un sufijo (ej. ante-), cuando\n'
+                                                 'no se pone el - buscará esa cadena en el medio de la palabra,\n'
+                                                 'o sea, esta cadena no estará ni al principio ni al final\n'
+                                                 'de la palabra que encuentre.')
 
         mainlayout.addWidget(self.strict_check, 0, 0, 1, 8)
         mainlayout.addWidget(self.label_min_matches, 1, 0, Qt.AlignRight)
