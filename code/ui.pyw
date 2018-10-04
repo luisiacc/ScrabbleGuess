@@ -7,6 +7,7 @@ import sys
 import rc_guess
 
 
+# noinspection PyArgumentList
 class MainForm(QMainWindow):
 
     def __init__(self, parent=None):
@@ -41,11 +42,12 @@ class MainForm(QMainWindow):
     def info(self):
         QMessageBox.information(self, 'Info', 'Hecho por: \naCC')
 
+    # noinspection PyArgumentList
     @property
     def mainbox(self):
         box = QGroupBox('Busqueda')
 
-        mainlayout = QGridLayout(box)
+        main_layout = QGridLayout(box)
         self.my_letters = QLineEdit()
         self.label_letters = QLabel('Letras disponibles')
 
@@ -63,6 +65,7 @@ class MainForm(QMainWindow):
         self.min_matches.setToolTip('Si dejas este en 0 se tomara como valor el numero de letras disponibles')
         self.label_min_matches = QLabel('Numero minimo de letras a encontrar en una palabra')
 
+        # noinspection PyArgumentList
         self.check_respect_word_order = QCheckBox('Modo combinacion', toggled=self.combination_checked)
         self.check_respect_word_order.setToolTip('Cuando quieres buscar una cadena determinada, ya sea \n'
                                                  'una terminación ( ej. -cion buscara todas las palabras\n'
@@ -71,16 +74,16 @@ class MainForm(QMainWindow):
                                                  'o sea, esta cadena no estará ni al principio ni al final\n'
                                                  'de la palabra que encuentre.')
 
-        mainlayout.addWidget(self.strict_check, 0, 0, 1, 8)
-        mainlayout.addWidget(self.label_min_matches, 1, 0, Qt.AlignRight)
-        mainlayout.addWidget(self.min_matches, 1, 1)
-        mainlayout.addWidget(self.label_minvalue, 2, 0, Qt.AlignRight)
-        mainlayout.addWidget(self.minvalue, 2, 1)
-        mainlayout.addWidget(self.label_maxvalue, 3, 0, Qt.AlignRight)
-        mainlayout.addWidget(self.maxvalue, 3, 1)
-        mainlayout.addWidget(self.label_letters, 4, 0, Qt.AlignRight)
-        mainlayout.addWidget(self.my_letters, 4, 1)
-        mainlayout.addWidget(self.check_respect_word_order, 5, 1)
+        main_layout.addWidget(self.strict_check, 0, 0, 1, 8)
+        main_layout.addWidget(self.label_min_matches, 1, 0, Qt.AlignRight)
+        main_layout.addWidget(self.min_matches, 1, 1)
+        main_layout.addWidget(self.label_minvalue, 2, 0, Qt.AlignRight)
+        main_layout.addWidget(self.minvalue, 2, 1)
+        main_layout.addWidget(self.label_maxvalue, 3, 0, Qt.AlignRight)
+        main_layout.addWidget(self.maxvalue, 3, 1)
+        main_layout.addWidget(self.label_letters, 4, 0, Qt.AlignRight)
+        main_layout.addWidget(self.my_letters, 4, 1)
+        main_layout.addWidget(self.check_respect_word_order, 5, 1)
 
         return box
 
