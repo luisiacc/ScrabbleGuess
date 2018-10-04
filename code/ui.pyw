@@ -96,7 +96,7 @@ class MainForm(QMainWindow):
                                 min_len=self.minvalue.value(), max_len=self.maxvalue.value(),
                                 strict_len=self.strict_check.checkState())
             if self.check_respect_word_order.checkState():
-                li = words.combination_matches()
+                li = words.combination_matches
             else:
                 li = words.get_matches()
 

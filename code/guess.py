@@ -12,7 +12,7 @@ class Guesser:
         self.min_matches = min_matches
         self.min_len = min_len
         self.max_len = max_len
-        self.dictionary = []
+        self.dictionary = [self.word_filter(i) for i in dictionary if self.word_filter(i)]
 
         for i in dictionary:
             i = self.word_filter(i)
@@ -73,6 +73,7 @@ class Guesser:
 
         return matches
 
+    @property
     def combination_matches(self):
         matches = []
 
