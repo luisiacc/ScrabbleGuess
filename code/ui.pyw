@@ -1,7 +1,7 @@
-from PyQt5.QtWidgets import *
+
 from PyQt5.QtCore import *
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QLabel
+from PyQt5.QtWidgets import *
 from guess import *
 import sys
 import rc_guess
@@ -27,13 +27,13 @@ class MainForm(QMainWindow):
         buttonbox = QHBoxLayout()
 
         self.view = QTextBrowser()
-        self.findbutton = QPushButton('Buscar', clicked=self.apply)
-        self.findbutton.setShortcut('Return')
+        self.find_button = QPushButton('Buscar', clicked=self.apply)
+        self.find_button.setShortcut('Return')
 
-        buttonbox.addWidget(self.findbutton)
+        buttonbox.addWidget(self.find_button)
         buttonbox.addStretch(1)
 
-        lay.addWidget(self.mainbox)
+        lay.addWidget(self.main_box)
         lay.addWidget(self.view)
 
         form.addLayout(lay)
@@ -44,7 +44,7 @@ class MainForm(QMainWindow):
 
     # noinspection PyArgumentList
     @property
-    def mainbox(self):
+    def main_box(self):
         box = QGroupBox('Busqueda')
 
         main_layout = QGridLayout(box)

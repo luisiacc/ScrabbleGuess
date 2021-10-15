@@ -1,3 +1,29 @@
+# author : aCC
+#           _____                    _____                    _____          
+#          /\    \                  /\    \                  /\    \         
+#         /::\    \                /::\    \                /::\    \        
+#        /::::\    \              /::::\    \              /::::\    \       
+#       /::::::\    \            /::::::\    \            /::::::\    \      
+#      /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \     
+#     /:::/__\:::\    \        /:::/  \:::\    \        /:::/  \:::\    \    
+#    /::::\   \:::\    \      /:::/    \:::\    \      /:::/    \:::\    \   
+#   /::::::\   \:::\    \    /:::/    / \:::\    \    /:::/    / \:::\    \  
+#  /:::/\:::\   \:::\    \  /:::/    /   \:::\    \  /:::/    /   \:::\    \ 
+# /:::/  \:::\   \:::\____\/:::/____/     \:::\____\/:::/____/     \:::\____\
+# \::/    \:::\  /:::/    /\:::\    \      \::/    /\:::\    \      \::/    /
+#  \/____/ \:::\/:::/    /  \:::\    \      \/____/  \:::\    \      \/____/ 
+#           \::::::/    /    \:::\    \               \:::\    \             
+#            \::::/    /      \:::\    \               \:::\    \            
+#            /:::/    /        \:::\    \               \:::\    \           
+#           /:::/    /          \:::\    \               \:::\    \          
+#          /:::/    /            \:::\    \               \:::\    \         
+#         /:::/    /              \:::\____\               \:::\____\        
+#         \::/    /                \::/    /                \::/    /        
+#          \/____/                  \/____/                  \/____/         
+                                                                           
+                                   
+
+
 spanish_dict = 'dicts/spanish.txt'
 
 
@@ -13,10 +39,6 @@ class Guesser:
         self.min_len = min_len
         self.max_len = max_len
         self.dictionary = [self.word_filter(i) for i in dictionary if self.word_filter(i)]
-
-        for i in dictionary:
-            i = self.word_filter(i)
-            if i: self.dictionary.append(i)
 
     def word_filter(self, word: str):
         word = word.strip('\n')
@@ -85,17 +107,15 @@ class Guesser:
 
         if self.let.endswith('-'):
             for word in self.dictionary:
-                word = self.word_filter(word)
                 if word.startswith(self.let[:-1]):
                     append(word)
         elif self.let.startswith('-'):
             for word in self.dictionary:
-                word = self.word_filter(word)
                 if word.endswith(self.let[1:]):
                     append(word)
         else:
             for word in self.dictionary:
                 if self.let in word and not word.startswith(self.let) \
-                    and not word.endswith(self.let):
+                        and not word.endswith(self.let):
                     append(word)
         return matches
